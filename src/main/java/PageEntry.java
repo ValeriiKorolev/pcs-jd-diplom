@@ -3,5 +3,23 @@ public class PageEntry implements Comparable<PageEntry> {
     private final int page;
     private final int count;
 
-    // ???
+    public PageEntry(String pdfName, int page, int count) {
+        this.pdfName = pdfName;
+        this.page = page;
+        this.count = count;
+    }
+
+    @Override
+    public int compareTo(PageEntry o) {
+        if (this.count == o.count) {
+            return 0;
+        } else if (this.count < o.count) {
+            return 1;
+        } else return -1;
+    }
+
+    public String toString() {
+        return "{ pdfName: " + pdfName + "'\n'page: " + page + "'\n'count: " + count + " }";
+    }
+
 }
